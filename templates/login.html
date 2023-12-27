@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+ {% include "header.html" %}
+
+<style>
+    .logcard{
+        width:500px;
+        height:400px;
+        margin-left:350px;
+    }
+</style>
+
+<body class="backlg">
+   <div class="logcard">
+    <div class="justify-content-center frm">
+       
+        <div class="card mt-5 mb-5">
+            <div class="card-header">
+
+                <h4 style="text-align: center;">Login  Here</h4>
+            </div>
+        <div class="card-body">
+            <div class="form">
+                <form method="POST",action='login/'>
+                    {%csrf_token%}
+                    
+                    <div class="form-group">
+                        <lable for="Username">Username:</lable>
+                        <input type="text" class="form-control" id="Username" name="Username" placeholder="Enter you username">
+    
+                    </div>
+                    <div>
+                        <lable for="password">Password:</lable>
+                        <input type="text" class="form-control " id="Password" name="Password" placeholder="Enter your password"><br>
+    
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="btn btn-primary btc">Login</button>
+                       
+
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+       </div>
+
+    </div>
+
+   </div>
+    {% include "footer.html" %}
+</body>
+</html>

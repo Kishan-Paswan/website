@@ -1,0 +1,39 @@
+{% include "header.html" %}
+
+<div class="container m-5">
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Service Name</th>
+                    {% comment %} <th>Service PIC</th> {% endcomment %}
+                    <th>Apply Date</th>
+                    <th>remove</th> 
+                    
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                
+            {% for x in data %}
+           
+              
+    
+            <tr>
+                <td>{{x.Sname}}</td>
+                {% comment %} <td><img src="media/{{x.pic.url}}" width="100px" height="100px"></td> {% endcomment %}
+                <td>{{x.Sdate}}</td>
+                <td><a href="../del/{{x.id}}"><i class="fa fa-times"></i></a></td>
+                
+            </tr>
+            
+
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% include "footer.html" %}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    {% include "header.html" %}
+     <marquee>
+        <h4 style="font-family: serif;">ALFA INFOTECH SERVICES</h4>
+    </marquee>
+     <div class="row">
+        {% for x in data %}
+        <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5 ">
+                 <img src="{{ x.pic.url}}" class="img-fluid product">
+            </div>
+        </div>
+         {% endfor %}
+         {% comment %} <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="pic2.jpeg" class="imgpic">
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="poster6.jpg" class="imgpic">
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="pic3.webp" class="imgpic">
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="pic4.webp" class="imgpic">
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="pic5.webp" class="imgpic">
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="pic8.jpeg" class="imgpic">
+            </div>
+         </div>
+         <div class="col-lg-3 col-md-3 col-6">
+            <div class="glarray mt-5">
+                <img src="pic9.jpeg" class="imgpic">
+            </div>
+         </div>
+         {% endcomment %}
+       
+       
+    </div>
+   {% include "footer.html" %}
+</body>
+
+</html>

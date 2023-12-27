@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+
+
+{% include "header.html" %}
+<style>
+    .rcard{
+        width:450px;
+        height:500px;
+        margin-left:400px;
+    }
+</style>
+
+
+<body class="rambk">
+    <div class=" justify-content-center frm">
+       
+        <div class="card mt-5 mb-5 rcard">
+            <div class="card-header">
+
+                <h4 style="text-align: center;">Register Here</h4>
+            </div>
+        <div class="card-body">
+            <div class="form">
+                <form method="POST" action="{% url 'signupForm' %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" name="Username" placeholder="Enter your username">
+                    </div>
+                    <div class="form-group">
+                        <lable for="email">Email:</lable>
+                        <input type="email" class="form-control" name="Email" placeholder="Enter your email">
+    
+                    </div>
+                    <div class="form-group">
+                        <lable for="password">Password:</lable>
+                        <input type="text" class="form-control" name="Password" placeholder="Enter your password">
+    
+                    </div>
+                    <div>
+                        <lable for="phone">Phone:</lable>
+                        <input type="number" class="form-control" name="Phone" placeholder="Enter your phone number">
+    
+                    </div>
+                    <div>
+                        <lable for="address">Address:</lable>
+                        <input type="text" class="form-control" name="Address" placeholder="Enter your address">
+    
+                    </div><br>
+                    
+                    <div>
+                        <button type="submit" class="btn btn-primary btc">submit</button>
+                        <p>Already have an account?<a href="/login">Login</a></p>
+
+                    </div>
+                   
+                </form>
+            </div>
+        </div>
+       </div>
+
+    </div>
+    {% include "footer.html" %}
+    
+</body>
+</html>

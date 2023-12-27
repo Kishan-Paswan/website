@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+{% include "header.html" %}
+<body>
+    
+<div class="container job ">
+    <marquee><h4 style="font-family: Georgia, 'Times New Roman', Times, serif;">APPLY HERE</h4></marquee>
+    <div>
+        <form class="mt-5" method="POST" action="{% url 'jobform'%}">
+            {% csrf_token %}
+            
+           
+            <div class="form-group">
+                <lable for="Name" >Name:</lable>
+                <input type="text" class="form-control " name="Name" placeholder="Enter your name">
+
+            </div><br>
+            <div class="form-group">
+                <lable for="Phone" >Phone:</lable>
+                <input type="number" class="form-control" name="Phone" placeholder="Enter your phone number">
+
+            </div>
+            <div class="form-group">
+                <lable for="Email">Email:</lable>
+                <input type="email" class="form-control" name="Email" placeholder="Enter your email">
+
+            </div><br>
+            <div class="form-group">
+                <lable for="Resume">Resume:</lable>
+                <input type="file" class="form-control" name="Resume">
+
+            </div><br>
+            <div class="form-group">
+                <lable for="Pic">Pic:</lable>
+                <input type="file" class="form-control" name="Pic" >
+
+            </div><br>
+            <div class="form-group">
+                <lable for="Password">Password:</lable>
+                <input type="Password" class="form-control" name="Password" >
+
+            </div><br>
+            <div>
+                <button type="submit" class="btn btn-primary btc" style="margin-left: 500px;">submit</button><br><br>
+                
+                <button type="reset" class="btn btn-danger btc" style="margin-left: 500px;">reset</button>
+               
+
+            </div><br>
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+{% include "footer.html" %}
+</html>

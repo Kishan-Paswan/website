@@ -1,0 +1,36 @@
+<style>
+    .serimg{
+        width:320px;
+        height:256px;
+    }
+</style>
+
+
+{% include "header.html" %}
+
+<div class="container">
+    <div class="row">
+        {% for x in data %}
+    
+        <div class="col-lg-4 col-md-4 col-6 mt-5">
+            
+
+            <div class="card">
+                <div class="card-body">
+                    <a href="/details/{{x.id}}"><img src="{{ x.pic.url }}" class="serimg"></a>
+                </div>
+               
+                <div class="card-footer">
+                <h5>{{x.Sname}}</h5>
+               
+              <a href="#" class="btn btn-primary">call now</a> 
+            
+                </div>
+            </div>
+
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+{% include "footer.html" %}
