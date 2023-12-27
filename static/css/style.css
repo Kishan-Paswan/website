@@ -1,0 +1,103 @@
+
+    .ram{
+        border:2px solid;
+    }
+    .row{
+        padding: 0;
+    }
+    .logopic{
+        height: 120px;
+        width:130px;
+    }
+    .menu{
+    
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+	
+
+    }
+    .menu li{
+    display: inline-block;
+    padding: 20px;
+    
+    }
+    .color{
+        background-color: wheat;
+    }
+    .poster{
+        margin-left: 40px;
+    }
+    
+    body,footer{
+        margin: 0;
+        padding: 0;
+    }
+    footer{
+        background-color: wheat;
+        
+        padding: 20px 0;
+    }
+    
+    /* .card{
+        height: 610px;
+        width:610px;
+    } */
+/* gallary */
+.gl{
+    height:100px;
+    width:220px;
+
+}
+.glarray{
+    margin-bottom: 40px;
+    
+}
+.imgpic{
+    height:290px;
+    width:300px;
+}
+/* about */
+.aboutpic{
+    height: 230px;
+    width:240px;
+    border:2px solid;
+    border-radius: 50%;
+}
+/* register */
+.frm{
+    
+    opacity:.5;
+}
+.btc{
+    margin-left:230px;
+}
+
+/* background register */
+.rambk{
+    
+    background-size:cover;
+    background-image:url("/static/css/back3.jpg");
+    background-repeat:no-repeat;
+}
+/* background login */
+.backlg{
+    
+    background-size:cover;
+    background-image:url("static/css/back6.webp");
+    background-repeat:no-repeat;
+}
+
+.job{
+    border:2px solid gray;
+    margin-top: 40px;
+    margin-bottom: 45px;
+    border-top-left-radius: 23px;
+    border-bottom-right-radius: 23px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius:40px ;
+    background-color:linen;
+    /* background-image: url("jobpic4.webp"); */
+    /* background-repeat: no-repeat; */
+}
+
