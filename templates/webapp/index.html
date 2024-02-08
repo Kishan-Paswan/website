@@ -1,0 +1,103 @@
+{% extends 'webapp/base.html'%}
+{% block content %}
+
+
+<div class="container">
+  <div class="login-box row">
+    <ul class="nav nav-tabs">
+      <li class="nav-item item">
+          <a class="nav-link active" id="signup-tab" data-bs-toggle="tab" href="#signup">Sign Up</a>
+      </li>
+    
+      <li class="spacer"></li>
+      <li class="nav-item ">
+          <a class="nav-link" id="signin-tab" data-bs-toggle="tab" href="#signin">Sign In</a>
+      </li>
+  </ul>
+
+  <div class="tab-content mt-2">
+    <!-- Sign Up tab -->
+    <div class="tab-pane fade show active" id="signup">
+      <div class="container" id="signup-container">
+            <!-- <h2 class="text-center">Sign Up</h2> -->
+            <form method="POST" action="{% url 'signup' %}" class="col-12 col-sm-12">
+                {% csrf_token%}
+               
+                <div class="mb-2 user-box">
+                <input type="text" class="" id="username" name="username" required>
+                <label for="username" class="form-label">Username</label>
+                <i class="fa-solid fa-user form-icon" ></i>
+                </div>
+                <div class="mb-2 user-box">
+                <input type="email" class="" id="email" name="email" required>
+                <label for="email" class="form-label">Email address</label>
+                <i class="fa-solid fa-envelope form-icon"></i>
+                </div>
+                <div class="mb-2 user-box">
+                <input type="password" class="" id="password" name="password1" required>
+                <label for="password" class="form-label">Password</label>
+                <i class="fa-solid fa-lock form-icon"></i>
+                </div>
+                <div class="mb-2 user-box">
+                <input type="password" class="" id="confirmPassword" name="password2" required>
+                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                <i class="fa-solid fa-lock form-icon"></i>
+                </div>
+                <div class="text-center mt-3">
+                <button type="submit">Sign Up</button>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+
+
+      <!-- Sign In tab -->
+        <div class="tab-pane fade mt-4" id="signin">
+       
+            <!-- <h1 class="text-center">Sign In</h1> -->
+            <form method="POST" action="{% url 'login'%}" class="col-12 col-sm-12 mt-4">
+                {% csrf_token%}
+               
+                <div class="mb-4 user-box">
+                <input type="text" class="" id="username" name="username" required>
+                <label for="username" class="form-label">Username</label>
+                <i class="fa-solid fa-user form-icon" ></i>
+                </div>
+                <div class="mb-4 user-box">
+                <input type="password" class="" id="password" name="password" required>
+                <label for="password" class="form-label">Password</label>
+                <i class="fa-solid fa-unlock form-icon"></i>
+                </div>
+                <div class="text-center mt-4">
+                <button type="submit">Sign In</button>
+                </div>
+            </form>
+            <p class="mt-4" ><a href="" class="  under">Forget your password?</a></p>
+            </div>
+        
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  {% if success %}
+    window.alert('Account created successfully!');
+  {% elif form.errors %}
+    var errorMessages = {% autoescape off %}{{ form.errors.as_json }}{% endautoescape %};
+    var errorMessage = 'Error in form submission.';
+
+    for (var field in errorMessages) {
+      errorMessage += '\n' + field + ': ' + errorMessages[field][0].message;
+    }
+
+    window.alert(errorMessage);
+  {% endif %}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  {% endblock %}

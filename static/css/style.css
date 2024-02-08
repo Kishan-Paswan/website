@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+  
+}
+html {
+    height: 100%;
+  }
+
+  body {
+  background-color:rgb(222,222,222);
+  }
+
+  .under{
+    text-decoration: none;
+    padding-top: 20px;
+  }
+
+ 
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 450px;
+    width: 450px;
+    padding: 30px;
+    transform: translate(-50%, -50%);
+    background: white;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+
+
+
+  .login-box h1 {
+    margin: 0 0 16px;
+    padding: 0;
+    color:black;
+   
+  }
+
+  
+.login-box .user-box {
+    position: relative;
+  }
+
+  .login-box .user-box input {
+    width: 100%;
+    font-size: 16px;
+    color: #0a705f;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    border: none;
+    padding: 10px 0;
+    padding-left: 4px;
+    border-bottom: 1px solid black;
+    margin-bottom: 16px;
+    outline: none; 
+    background: transparent;
+  }
+
+  .user-box input:focus{
+    border-bottom: 3px solid black;
+  }
+
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    padding-left: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+    pointer-events: none;
+    transition: .5s;
+  }
+
+  .login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: grey;
+  font-size: 12px;
+  font-weight: 600;
+  
+}
+
+
+ 
+ button{
+  position: relative;
+   border: 2px solid black;
+   color: black;
+   font-weight: 600;
+   padding: 10px 17px;
+   border-radius: 6px;
+   transition: all cubic-bezier(0.215, 0.610, 0.355, 1);
+   text-decoration: none;
+  }
+
+  
+  button:hover {
+     
+    color: white ;
+    background-color: black;
+    
+  }
+
+  .formtext{
+    color: grey;
+    font-weight: 600;
+  }
+
+
+.spacer {
+  margin-right: 100px; 
+}
+
+.item{
+  padding-left: 40px;
+}
+
+/* Remove border from nav-tabs */
+.nav-tabs {
+  border: 0;
+}
+.nav-tabs .nav-link{
+  border:none
+}
+.nav-tabs .nav-link:active{
+  border: 2px solid black; 
+}
+.nav-tabs .nav-link:hover{
+  border: none;
+  border: 1px solid black; 
+}
+/* Remove box-shadow from active tab */
+.nav-tabs .nav-link.active {
+  border-bottom: 3px solid black;
+}
+
+
+/* fontawsome icon */
+.form-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* Adjust the right distance as needed */
+  transform: translateY(-50%);
+  font-size: 16px;
+  padding-bottom: 16px;
+}
+
+
+
+
+/* ------------Dashboard-------------- */
+.dbtn{
+  text-decoration: none;
+  color: black;
+
+}
+.dbtn:hover{
+  color: blue;
+}
+.dashbtn{
+  position: relative;
+   border: 2px solid black;
+   color: black;
+   font-weight: 600;
+   padding: 11px 16px;
+   border-radius: 6px;
+   text-decoration: none;
+}
+
+.dashbtn:hover{
+  color: white ;
+  background-color: black;
+ 
+}
+
+.search-box{
+  border: 2px solid black;
+  border-radius: 4px;
+  outline: none;
+  padding:4px 16px;
+  font-size: 16px;
+  color: #0a705f;
+  font-family: 'Montserrat';
+  font-weight: 600;
+}
+
+.search-box:focus{
+  border: 3px solid black;
+}
+
+.dashform{
+  padding: 20px 35px ;
+}
+
+.dashform input{
+  width: 100%;
+  font-size: 16px;
+  color: #0a705f;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  border: none;
+  padding: 5px 0;
+  padding-left: 8px;
+  border-bottom: 1px solid black;
+  margin-bottom: 16px;
+  outline: none; 
+  background: transparent;
+}
+
+.dashform input:focus{
+
+  border-bottom: 3px solid black;
+
+}
+
+.input-box{
+  position: relative;
+}
+
+
+ table th {
+  font-weight: 600;
+  white-space: nowrap;
+  word-wrap: normal; 
+}
+
+.details-column{
+    font-size: 12px;
+    font-weight: 500;
+}

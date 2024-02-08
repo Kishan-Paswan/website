@@ -1,0 +1,163 @@
+{% extends 'webapp/base.html'%}
+{% block content %}
+
+
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light  pt-4  pb-4">
+  <div class="container">
+    <h1 class="navbar-brand">Logo</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto ms-auto mb-2 mb-lg-0">
+        <li class="nav-item "  ;">
+          <h4><a href="{% url 'dashboard' %}" class="dbtn" >Dashboard</a> - {{user.username | capfirst }}</h4>
+  
+        </li>
+      </ul>
+    <form method="post" action="{% url 'dashboard/search' %}"
+      class="d-flex position-relative me-auto me-auto">
+        {% csrf_token %}
+        <input class=" search-box me-2 " type="search" name="query" placeholder="Search" aria-label="Search">
+        <i class="fa-solid fa-magnifying-glass form-icon"></i>
+        <button class="" type="submit">Search</button>
+      </form>
+        <a class="dashbtn" href="{% url 'logout' %}">Logout</a>
+    </div>
+  </div>
+</nav>
+  
+<div class="container  mt-4">
+    <div class="row">
+      <!-- data entry column -->
+      <div class="col-12 col-sm-4">
+          <div class="dashform"  style="height: 532px;   border: 2px solid black; border-radius: 4px;">
+               <h4 class="text-center">Submit Details</h4>
+            <form method="POST" action="{% url 'dashboard' %}"  enctype="multipart/form-data" >
+              {% csrf_token %}
+              <div class="mb-3  input-box"> 
+                <input type="text" name="name" placeholder="Name"  required>
+                <i class="fa-regular fa-user form-icon"></i>
+               
+              </div>
+              <div class="mb-3 input-box">               
+                <input type="date" name="dob" placeholder="Date of Birth" required>
+              </div>
+              <div class="mb-3 input-box">
+                  <input type="email" name="email" placeholder="Email" required>
+                  <i class="fa-regular fa-envelope  form-icon"></i>
+               </div>    
+              <div class="mb-3 input-box">
+               
+                <input type="text" name="mobile" placeholder="Mobile Number"  required>
+                <i class="fa-solid fa-mobile-screen form-icon"></i>
+              </div>
+              <div class="mb-3  input-box">
+                <input type="text" name="address"  placeholder="Address" required>
+                <i class="fa-solid fa-location-dot form-icon "></i>
+              </div>
+              <div class="mb-3 input-box ">
+                <input type="file" name="photo"   placeholder="Photo"  >
+                <i class="fa-regular fa-image form-icon"></i>
+              </div>
+              <input type="hidden" name="user" value="{{user.id}}">
+              <div class="text-center"><button type="submit"  >Submit</button></div>
+              
+            </form>
+            {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+          </div>
+      </div>
+
+      <!-- list table -->
+      <div class="col-12 col-sm-8 mt--4">
+        <div class="dashform" style="height: 532px;border: 2px solid black; border-radius: 4px;
+                       overflow: auto;   ">
+          <h4 class="text-center">Details List</h4>
+          <table class="table">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Email</th>
+                    <th>Mobile Number</th>
+                    <th>Address</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for x in data %}
+                <tr class="">
+                          <td> 
+                            <div class="rounded-circle thumbnail-photo" style="width: 60px; height: 60px; overflow: hidden;
+                                   "
+                                data-photo-url="{{ x.photo.url }}">
+                                <img src="{{ x.photo.url }}" alt="{{ x.name }}" width="100%" height="100%">
+                            </div>
+                        </td>
+                        <td class="details-column pt-2" >{{ x.id }}</td>
+                        <td class="details-column" >{{ x.name }}</td>
+                        <td class="details-column" >{{ x.dob }}</td>
+                        <td class="details-column">{{ x.email }}</td>
+                        <td class="details-column">{{ x.mobile }}</td>
+                        <td class="details-column" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" >{{ x.address }}</td>
+                        <td><a class="btn btn-block " href="{% url 'update' x.id %}"><i class="fa-regular fa-pen-to-square"></i></a>
+                          <a href="{% url 'delete' x.id %}" style="color: red;"><i class="fa-solid fa-trash"></i></a></td>
+                      </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+    <footer class="containe-sm bg-light mt-4 pt-4 pb-3" style="height:130px;"> 
+      <h6 class="text-center "> Created by Kishan </h6>
+   </footer>
+   
+   <!-- Add this at the end of your HTML template, right before the closing body tag -->
+<div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="photoModalLabel">Full Photo</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <img id="fullPhoto" src="" alt="Full Photo" class="img-fluid">
+          </div>
+      </div>
+  </div>
+</div>
+
+<script>
+  // Add this script to handle photo click events and display the modal
+  document.addEventListener('DOMContentLoaded', function () {
+      const photoModal = new bootstrap.Modal(document.getElementById('photoModal'));
+      const fullPhoto = document.getElementById('fullPhoto');
+
+      const thumbnailImages = document.querySelectorAll('.thumbnail-photo');
+
+      thumbnailImages.forEach(image => {
+          image.addEventListener('click', function () {
+              const photoUrl = this.getAttribute('data-photo-url');
+              fullPhoto.src = photoUrl;
+              photoModal.show();
+          });
+      });
+  });
+</script>
+
+   
+  {% endblock %}
